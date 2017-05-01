@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/deal_width"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/deal_margin_bottom"
+    android:layout_marginEnd="@dimen/deal_margin"
+    android:layout_marginLeft="@dimen/deal_margin"
+    android:layout_marginRight="@dimen/deal_margin"
+    android:layout_marginStart="@dimen/deal_margin"
+    android:layout_marginTop="@dimen/deal_margin_top"
+    app:cardCornerRadius="0dp"
+    app:cardPreventCornerOverlap="false">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.app.marvel.views.TextViewCustom
+            android:id="@+id/name"
+            style="@style/GenericTextDark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textSize="@dimen/base_text_size_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="ajaa" />
+
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.app.marvel.views.TextViewCustom
+            android:visibility="gone"
+            android:id="@+id/price"
+            style="@style/GenericTextDark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@android:color/white"
+            android:ellipsize="end"
+            android:padding="5dp"
+            android:lines="1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/home_text_size_price"
+            app:layout_constraintBottom_toBottomOf="@+id/img"
+            app:layout_constraintRight_toRightOf="@+id/img"
+            tools:text="ajaa" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>
+
+

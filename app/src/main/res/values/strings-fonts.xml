@@ -1,0 +1,17 @@
+<resources>
+    <string name="Raleway_Bold">fonts/Raleway/Raleway-Bold.ttf</string>
+    <string name="Raleway_ExtraBold">fonts/Raleway/Raleway-ExtraBold.ttf</string>
+    <string name="Raleway_ExtraLight">fonts/Raleway/Raleway-ExtraLight.ttf</string>
+
+    <string name="Raleway_Heavy">fonts/Raleway/Raleway-Heavy.ttf</string>
+    <string name="Raleway_Light">fonts/Raleway/Raleway-Light.ttf</string>
+
+    <string name="Raleway_Medium">fonts/Raleway/Raleway-Medium.ttf</string>
+    <string name="Raleway_Regular">fonts/Raleway/Raleway-Regular.ttf</string>
+    <string name="Raleway_SemiBold">fonts/Raleway/Raleway-SemiBold.ttf</string>
+    <string name="Raleway_Thin">fonts/Raleway/Raleway-Thin.ttf</string>
+
+    <string name="Arial_Bold">fonts/Arial/Arial-Bold.ttf</string>
+    <string name="Arial">fonts/Arial/Arial.ttf</string>
+    <string name="Marvel">fonts/Marvel/AmericanCaptain.ttf</string>
+</resources>

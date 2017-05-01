@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.app.marvel.views.TextViewCustom
+        android:id="@+id/detail_main_header_screen_title"
+        style="@style/GenericText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="@dimen/detail_text_size"
+        tools:text="TextView" />
+
+    <com.app.marvel.views.TextViewCustom
+        android:id="@+id/detail_main_header_screen_location"
+        style="@style/GenericText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        tools:text="TextView" />
+
+    <com.app.marvel.views.ButtonCustom
+        android:id="@+id/detail_main_header_screen_options"
+        style="@style/GenericTitles"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:background="@android:color/white"
+        android:text="@string/more_info"
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/detail_text_size" />
+
+    <!--    <View
+            android:background="@android:color/white"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"/>-->
+
+    <com.app.marvel.views.TextViewCustom
+        android:id="@+id/stories_title"
+        style="@style/GenericTitles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/stories"
+        android:textSize="@dimen/detail_text_size" />
+
+    <LinearLayout
+        android:id="@+id/detail_main_stories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        tools:text="TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView" />
+
+</LinearLayout>
+

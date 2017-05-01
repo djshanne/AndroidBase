@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/HorizontalSections"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+
+    <com.app.marvel.views.VerticalViewPager
+        android:id="@+id/pager_cover_flow_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/home_section_lateral_padding"
+        android:paddingBottom="@dimen/home_section_lateral_padding" />
+
+    <ProgressBar
+        android:id="@+id/generic_list_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/bottom_section_loading_padding" />
+
+    <ImageView
+        android:id="@+id/generic_list_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp" />
+
+    <ImageView
+        android:id="@+id/sections_list_retry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp" />
+
+
+</FrameLayout>

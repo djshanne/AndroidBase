@@ -1,0 +1,38 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="deal_width">200dp</dimen>
+
+    <dimen name="deal_margin">8dp</dimen>
+    <dimen name="deal_margin_bottom">2dp</dimen>
+    <dimen name="deal_margin_top">4dp</dimen>
+
+    <dimen name="deal_margin_wide">4dp</dimen>
+
+    <dimen name="deal_height">120dp</dimen>
+    <dimen name="deal_img_height">70dp</dimen>
+    <dimen name="deal_img_width">100dp</dimen>
+
+
+    <dimen name="base_text_size_small">12sp</dimen>
+    <dimen name="base_text_size_regular">15sp</dimen>
+    <dimen name="base_text_size_medium">18sp</dimen>
+    <dimen name="base_text_size_big">20sp</dimen>
+    <dimen name="base_text_size_big_x1">27sp</dimen>
+    <dimen name="base_text_size_big_x2">38sp</dimen>
+
+    <!--<dimen name="detail_top_section_height">100dp</dimen>-->
+    <dimen name="review_height">100dp</dimen>
+
+    <dimen name="home_section_lateral_padding">80dp</dimen>
+    <dimen name="bottom_section_loading_padding">120dp</dimen>
+    <dimen name="detail_main_screen_variant_item_height">80dp</dimen>
+
+    <dimen name="navigation_wide_height">30dp</dimen>
+    <dimen name="detail_text_size_buttom">17sp</dimen>
+    <dimen name="detail_text_size">20sp</dimen>
+    <dimen name="home_text_size_header">20sp</dimen>
+    <dimen name="home_text_size_price">20sp</dimen>
+</resources>
