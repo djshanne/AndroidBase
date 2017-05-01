@@ -74,7 +74,9 @@ public class DetailFragment extends BaseFragment implements DetailFragmentContro
 
     @Override
     public void renderView(Result data) {
+        controller.hideToolBarTitle();
         controller.setToolbarTitle(data.getName());
+        controller.showToolBarTitleFade();
         headerDetailViewHandler.renderView(data);
         List<Thumbnail> list = new ArrayList<>();
         list.add(data.getThumbnail());

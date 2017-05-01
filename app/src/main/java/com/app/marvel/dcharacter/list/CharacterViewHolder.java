@@ -43,6 +43,7 @@ public class CharacterViewHolder extends BaseViewHolder {
         this.name.setText(!TextUtils.isEmpty(item.getName()) ? item.getName() : item.getDescription());
         if (!TextUtils.isEmpty(item.getThumbnail().getPath() + "." + item.getThumbnail().getExtension()))
             picasso.load(item.getThumbnail().getPath() + "." + item.getThumbnail().getExtension()).into(img);
+
     }
 
     @Override

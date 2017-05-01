@@ -320,7 +320,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
     public void showToolBarTitleFade() {
         if (mToolbar != null && mToolbar.findViewById(R.id.tool_bar_title) != null) {
             titleToolBar = (TextViewCustom) mToolbar.findViewById(R.id.tool_bar_title);
-            titleToolBar.animate().alpha(1).setDuration(100).start();
+            titleToolBar.animate().alpha(1).setDuration(1000).start();
         }
     }
 

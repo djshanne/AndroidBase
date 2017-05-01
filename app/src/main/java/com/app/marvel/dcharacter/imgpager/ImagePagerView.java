@@ -49,10 +49,13 @@ public class ImagePagerView extends FrameLayout {
     private void initializeViewPager() {
         imgAdapter = new ImgAdapter();
         pager.setAdapter(imgAdapter);
+        pager.animate().alpha(0).start();
     }
 
     public void setData(List<Thumbnail> attachments) {
         imgAdapter.setData(attachments);
+
+        pager.animate().alpha(1).setDuration(4000).start();
     }
 
 

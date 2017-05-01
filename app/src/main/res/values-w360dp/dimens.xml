@@ -35,5 +35,6 @@
     <dimen name="detail_text_size_buttom">25sp</dimen>
     <dimen name="detail_text_size">30sp</dimen>
     <dimen name="home_text_size_price">30sp</dimen>
+    <dimen name="home_text_size_header">17sp</dimen>
     <dimen name="detail_image_pager_height">250dp</dimen>
 </resources>

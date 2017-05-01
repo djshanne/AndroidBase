@@ -37,10 +37,13 @@ public class InfoFragment extends BaseFragment implements InfoController {
         super.onCreate(savedInstanceState);
         bottomList = CharactersFragmentList.getInstance(R.layout.item_wide_loading, R.layout.item_wide_view, R.layout.item_wide_retry, new RequestCharacters(controller.getIdInfo(), RequestList.COMICS), true, false, LinearLayoutManager.VERTICAL, true);
         bottomList.setTitleTab(getString(R.string.comics));
+        bottomList.cancelOnClick();
         bottomList4 = CharactersFragmentList.getInstance(R.layout.item_wide_loading, R.layout.item_wide_view, R.layout.item_wide_retry, new RequestCharacters(controller.getIdInfo(), RequestList.EVENTS), true, false, LinearLayoutManager.VERTICAL, true);
         bottomList4.setTitleTab(getString(R.string.events));
+        bottomList4.cancelOnClick();
         bottomList5 = CharactersFragmentList.getInstance(R.layout.item_wide_loading, R.layout.item_wide_view, R.layout.item_wide_retry, new RequestCharacters(controller.getIdInfo(), RequestList.SERIES), true, false, LinearLayoutManager.VERTICAL, true);
         bottomList5.setTitleTab(getString(R.string.series));
+        bottomList5.cancelOnClick();
     }
 
 

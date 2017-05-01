@@ -4,7 +4,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.app.marvel.R;
 import com.app.marvel.base.BaseItemAdapter;
 import com.app.marvel.base.FragmentList;
 import com.app.marvel.base.ItemListener;
@@ -24,6 +23,7 @@ public class CharactersFragmentList extends FragmentList<BaseResponse<Data<Resul
 
 
     private CharactersFragmentPresenter presenter;
+    private boolean isOnClickAvailable = true;
 
     public CharactersFragmentList() {
     }
@@ -60,7 +60,8 @@ public class CharactersFragmentList extends FragmentList<BaseResponse<Data<Resul
         mAdapter.setOnItemClickedListener(new ItemListener<Result>() {
             @Override
             public void onItemClicked(Result item) {
-                DetailActivity.startWithId(getContext(), item.getId());
+                if (isOnClickAvailable)
+                    DetailActivity.startWithId(getContext(), item.getId());
             }
         });
 
@@ -77,7 +78,7 @@ public class CharactersFragmentList extends FragmentList<BaseResponse<Data<Resul
         mAdapter.addData(data.getData().getResults());
         getRequest().setPage(mAdapter.getData().size());
         getRequest().setPageSize(data.getData().getLimit());
-        mAdapter.setMaxPages(data.getData().getTotal()/data.getData().getLimit());
+        mAdapter.setMaxPages(data.getData().getTotal() / data.getData().getLimit());
         mProgressBar.setVisibility(View.GONE);
         mEmptyView.setVisibility(View.GONE);
 
@@ -130,6 +131,10 @@ public class CharactersFragmentList extends FragmentList<BaseResponse<Data<Resul
         fragment.setShouldLoadDataAtFirst(shouldLoadDataAtFirst);
         fragment.setLayOutManager(layOutManager);
         return fragment;
+    }
+
+    public void cancelOnClick() {
+        isOnClickAvailable = false;
     }
 
     @Override
