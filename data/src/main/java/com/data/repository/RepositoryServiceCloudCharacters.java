@@ -5,12 +5,10 @@ import android.text.TextUtils;
 import com.data.repository.characters.RepositoryCharacters;
 import com.data.service.Cloud;
 import com.data.service.request.RequestList;
+import com.data.utils.Utils;
 import com.model.bean.BaseResponse;
 import com.model.bean.characters.Data;
 import com.model.bean.characters.Result;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Response;
 
@@ -27,7 +25,7 @@ public class RepositoryServiceCloudCharacters extends RepositoryServiceCloudBase
         Response<BaseResponse<Data<Result>>> r = Cloud.getApiApp().getCharacters(getApiKey(), getHash(), getTs(), RequestList.getPage()).execute();
         switch (r.code()) {
             default:
-                return resultFiltered((BaseResponse<Data<Result>>) handleResponse(r));
+                return new Utils<Result>().resultFiltered((BaseResponse<Data<Result>>) handleResponse(r));
         }
     }
 
@@ -43,18 +41,6 @@ public class RepositoryServiceCloudCharacters extends RepositoryServiceCloudBase
             default:
                 return (BaseResponse<Data<Result>>) handleResponse(r);
         }
-    }
-
-    protected BaseResponse<Data<Result>> resultFiltered(BaseResponse<Data<Result>> resultBaseResponse) {
-        List<Result> results = resultBaseResponse.getData().getResults();
-        List<Result> resultsFiltered = new ArrayList<>();
-        for (Result result : results) {
-            if (!result.getThumbnail().getPath().contains("image_not_available")) {
-                resultsFiltered.add(result);
-            }
-        }
-        resultBaseResponse.getData().setResults(resultsFiltered);
-        return resultBaseResponse;
     }
 
 

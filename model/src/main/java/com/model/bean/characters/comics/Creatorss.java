@@ -10,7 +10,7 @@ import com.model.bean.characters.Stories;
 import com.model.bean.characters.Thumbnail;
 import com.model.bean.characters.Url;
 
-public class Creatorss {
+public class Creatorss extends GenericThumb{
 
     @SerializedName("id")
     @Expose
@@ -33,9 +33,6 @@ public class Creatorss {
     @SerializedName("modified")
     @Expose
     private String modified;
-    @SerializedName("thumbnail")
-    @Expose
-    private Thumbnail thumbnail;
     @SerializedName("resourceURI")
     @Expose
     private String resourceURI;
@@ -109,14 +106,6 @@ public class Creatorss {
 
     public void setModified(String modified) {
         this.modified = modified;
-    }
-
-    public Thumbnail getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(Thumbnail thumbnail) {
-        this.thumbnail = thumbnail;
     }
 
     public String getResourceURI() {

@@ -3,6 +3,7 @@ package com.data.repository.events;
 import com.data.repository.RepositoryServiceCloudBase;
 import com.data.service.Cloud;
 import com.data.service.request.RequestList;
+import com.data.utils.Utils;
 import com.model.bean.BaseResponse;
 import com.model.bean.characters.Data;
 import com.model.bean.characters.Eventss;
@@ -26,20 +27,8 @@ public class RepositoryServiceCloudEvents extends RepositoryServiceCloudBase imp
         Response<BaseResponse<Data<Eventss>>> r = Cloud.getApiApp().getEvents(getApiKey(), getHash(), getTs(), requestCharacters.getPage()).execute();
         switch (r.code()) {
             default:
-                return resultFiltered((BaseResponse<Data<Eventss>>) handleResponse(r));
+                return new Utils<Eventss>().resultFiltered((BaseResponse<Data<Eventss>>) handleResponse(r));
         }
-    }
-
-    protected BaseResponse<Data<Eventss>> resultFiltered(BaseResponse<Data<Eventss>> resultBaseResponse) {
-        List<Eventss> results = resultBaseResponse.getData().getResults();
-        List<Eventss> resultsFiltered = new ArrayList<>();
-        for (Eventss result : results) {
-            if (!result.getThumbnail().getPath().contains("image_not_available")) {
-                resultsFiltered.add(result);
-            }
-        }
-        resultBaseResponse.getData().setResults(resultsFiltered);
-        return resultBaseResponse;
     }
 
 

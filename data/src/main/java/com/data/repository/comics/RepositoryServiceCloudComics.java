@@ -3,13 +3,11 @@ package com.data.repository.comics;
 import com.data.repository.RepositoryServiceCloudBase;
 import com.data.service.Cloud;
 import com.data.service.request.RequestList;
+import com.data.utils.Utils;
 import com.model.bean.BaseResponse;
 import com.model.bean.characters.Data;
 import com.model.bean.characters.Result;
 import com.model.bean.characters.comics.Comics;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Response;
 
@@ -26,7 +24,7 @@ public class RepositoryServiceCloudComics extends RepositoryServiceCloudBase imp
         Response<BaseResponse<Data<Comics>>> r = Cloud.getApiApp().getComics(getApiKey(), getHash(), getTs(), requestCharacters.getPage()).execute();
         switch (r.code()) {
             default:
-                return resultFiltered((BaseResponse<Data<Comics>>) handleResponse(r));
+                return new Utils<Comics>().resultFiltered((BaseResponse<Data<Comics>>) handleResponse(r));
         }
     }
 
@@ -39,20 +37,6 @@ public class RepositoryServiceCloudComics extends RepositoryServiceCloudBase imp
                 return (BaseResponse<Data<Comics>>) handleResponse(r);
         }
     }
-
-
-    protected BaseResponse<Data<Comics>> resultFiltered(BaseResponse<Data<Comics>> resultBaseResponse) {
-        List<Comics> results = resultBaseResponse.getData().getResults();
-        List<Comics> resultsFiltered = new ArrayList<>();
-        for (Comics result : results) {
-            if (!result.getThumbnail().getPath().contains("image_not_available")) {
-                resultsFiltered.add(result);
-            }
-        }
-        resultBaseResponse.getData().setResults(resultsFiltered);
-        return resultBaseResponse;
-    }
-
 
     @Override
     public void setComics(BaseResponse<Data<Comics>> Characters) throws Exception {

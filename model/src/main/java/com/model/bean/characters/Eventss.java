@@ -4,8 +4,9 @@ package com.model.bean.characters;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.model.bean.characters.comics.GenericThumb;
 
-public class Eventss {
+public class Eventss extends GenericThumb {
 
     @SerializedName("id")
     @Expose
@@ -31,9 +32,6 @@ public class Eventss {
     @SerializedName("end")
     @Expose
     private String end;
-    @SerializedName("thumbnail")
-    @Expose
-    private Thumbnail thumbnail;
     @SerializedName("creators")
     @Expose
     private Creators creators;
@@ -114,14 +112,6 @@ public class Eventss {
 
     public void setEnd(String end) {
         this.end = end;
-    }
-
-    public Thumbnail getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(Thumbnail thumbnail) {
-        this.thumbnail = thumbnail;
     }
 
     public Creators getCreators() {

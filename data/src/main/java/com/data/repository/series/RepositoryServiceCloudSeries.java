@@ -3,12 +3,10 @@ package com.data.repository.series;
 import com.data.repository.RepositoryServiceCloudBase;
 import com.data.service.Cloud;
 import com.data.service.request.RequestList;
+import com.data.utils.Utils;
 import com.model.bean.BaseResponse;
 import com.model.bean.characters.Data;
 import com.model.bean.characters.comics.Seriess;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Response;
 
@@ -25,7 +23,7 @@ public class RepositoryServiceCloudSeries extends RepositoryServiceCloudBase imp
         Response<BaseResponse<Data<Seriess>>> r = Cloud.getApiApp().getSeries(getApiKey(), getHash(), getTs(), RequestList.getPage()).execute();
         switch (r.code()) {
             default:
-                return resultFiltered((BaseResponse<Data<Seriess>>) handleResponse(r));
+                return new Utils<Seriess>().resultFiltered((BaseResponse<Data<Seriess>>) handleResponse(r));
         }
     }
 
@@ -36,18 +34,6 @@ public class RepositoryServiceCloudSeries extends RepositoryServiceCloudBase imp
             default:
                 return (BaseResponse<Data<Seriess>>) handleResponse(r);
         }
-    }
-
-    protected BaseResponse<Data<Seriess>> resultFiltered(BaseResponse<Data<Seriess>> resultBaseResponse) {
-        List<Seriess> results = resultBaseResponse.getData().getResults();
-        List<Seriess> resultsFiltered = new ArrayList<>();
-        for (Seriess result : results) {
-            if (!result.getThumbnail().getPath().contains("image_not_available")) {
-                resultsFiltered.add(result);
-            }
-        }
-        resultBaseResponse.getData().setResults(resultsFiltered);
-        return resultBaseResponse;
     }
 
 

@@ -16,7 +16,7 @@ import com.model.bean.characters.Url;
 
 import java.util.List;
 
-public class Comics {
+public class Comics extends GenericThumb{
 
     @SerializedName("id")
     @Expose
@@ -75,9 +75,6 @@ public class Comics {
     @SerializedName("prices")
     @Expose
     private List<Price> prices = null;
-    @SerializedName("thumbnail")
-    @Expose
-    private Thumbnail thumbnail;
     @SerializedName("images")
     @Expose
     private List<Image> images = null;
@@ -244,14 +241,6 @@ public class Comics {
 
     public void setPrices(List<Price> prices) {
         this.prices = prices;
-    }
-
-    public Thumbnail getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(Thumbnail thumbnail) {
-        this.thumbnail = thumbnail;
     }
 
     public List<Image> getImages() {
