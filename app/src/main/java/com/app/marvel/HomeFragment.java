@@ -100,7 +100,6 @@ public class HomeFragment extends BaseFragment implements Controller {
 
     @Override
     public void hideProgressBar(boolean b) {
-        controller.hideProgressBar(b);
     }
 
     public static HomeFragment getInstance(Controller controller) {
