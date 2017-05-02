@@ -19,26 +19,6 @@ import java.util.Locale;
 
 public class Utils {
 
-    private static NumberFormat formatterPrice = NumberFormat.getCurrencyInstance(Locale.FRANCE);
-    ;
-
-    public static String formatDistance(String s) {
-        return s + " km---";
-    }
-
-    public static String formatPrice(int price) {
-        return formatterPrice.format(new BigDecimal(price / 100));
-    }
-
-    public static String formatDiscount(float disc) {
-        return "-" + disc + "%";
-    }
-
-    public static String formatDiscountBase100(float disc) {
-        return formatDiscount(disc / 100);
-    }
-
-
     public static void setIconColor(Context c, int colorId, int drawableId, ImageView imageView) {
         if (c == null) return;
         Drawable d = c.getResources().getDrawable(drawableId);

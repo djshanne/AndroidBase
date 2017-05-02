@@ -18,7 +18,10 @@ import static org.junit.Assert.assertEquals;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
+
+
 public class UtilsUnitTest {
+
     @Test
     public void filtering_isCorrect() throws Exception {
         BaseResponse<Data<Result>> response = new BaseResponse<>();
