@@ -55,11 +55,8 @@ public class EventsFragmentList extends FragmentList<BaseResponse<Data<Eventss>>
                 }
             }
         };
-        mAdapter.setOnItemClickedListener(new ItemListener<Eventss>() {
-            @Override
-            public void onItemClicked(Eventss item) {
-//                DetailActivity.startWithId(getContext(), item.getSlug(), getRequest().getCurrentNavigationPath() == null ? "" : getRequest().getCurrentNavigationPath().getPath().replaceFirst("/", ""));
-            }
+        mAdapter.setOnItemClickedListener(item -> {
+
         });
 
         mAdapter.setOnOnRetryClickedListener(() -> mAdapter.removeRetryView());

@@ -4,17 +4,17 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="deal_width">250dp</dimen>
+    <dimen name="item_width">250dp</dimen>
 
-    <dimen name="deal_margin">8dp</dimen>
-    <dimen name="deal_margin_bottom">2dp</dimen>
-    <dimen name="deal_margin_top">4dp</dimen>
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="item_margin_bottom">2dp</dimen>
+    <dimen name="item_margin_top">4dp</dimen>
 
-    <dimen name="deal_margin_wide">4dp</dimen>
+    <dimen name="item_margin_wide">4dp</dimen>
 
-    <dimen name="deal_height">120dp</dimen>
-    <dimen name="deal_img_height">70dp</dimen>
-    <dimen name="deal_img_width">100dp</dimen>
+    <dimen name="item_height">120dp</dimen>
+    <dimen name="item_img_height">70dp</dimen>
+    <dimen name="item_img_width">100dp</dimen>
 
 
     <dimen name="base_text_size_small">12sp</dimen>

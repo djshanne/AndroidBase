@@ -55,11 +55,8 @@ public class CreatorsFragmentList extends FragmentList<BaseResponse<Data<Creator
                 }
             }
         };
-        mAdapter.setOnItemClickedListener(new ItemListener<Creatorss>() {
-            @Override
-            public void onItemClicked(Creatorss item) {
-//                DetailActivity.startWithId(getContext(), item.getSlug(), getRequest().getCurrentNavigationPath() == null ? "" : getRequest().getCurrentNavigationPath().getPath().replaceFirst("/", ""));
-            }
+        mAdapter.setOnItemClickedListener(item -> {
+
         });
 
         mAdapter.setOnOnRetryClickedListener(() -> mAdapter.removeRetryView());

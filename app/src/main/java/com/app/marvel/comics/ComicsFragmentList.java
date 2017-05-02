@@ -56,11 +56,8 @@ public class ComicsFragmentList extends FragmentList<BaseResponse<Data<Comics>>,
                 }
             }
         };
-        mAdapter.setOnItemClickedListener(new ItemListener<Comics>() {
-            @Override
-            public void onItemClicked(Comics item) {
-//                DetailActivity.startWithId(getContext(), deal.getSlug(), getRequest().getCurrentNavigationPath() == null ? "" : getRequest().getCurrentNavigationPath().getPath().replaceFirst("/", ""));
-            }
+        mAdapter.setOnItemClickedListener(item -> {
+
         });
 
         mAdapter.setOnOnRetryClickedListener(() -> mAdapter.removeRetryView());
