@@ -28,6 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Controll
 
     @BindView(R.id.main_progress)
     public View mProgressBar;
+
     private static final String MAIN_FRAGMENT_ID_KEY = "01";
     @Nullable
     @BindView(R.id.toolbar)

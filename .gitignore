@@ -36,3 +36,4 @@ captures/
 *.iml
 app/fabric.properties
 
+*.json
