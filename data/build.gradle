@@ -32,6 +32,7 @@ android {
             buildConfigField "String", "API_KEY_PUBLIC", "$API_KEY_PUBLIC"
             buildConfigField "String", "API_COMPANY_NAME", "$API_COMPANY_NAME_MARVEL"
             buildConfigField "String", "URL_BASE_API", "$URL_BASE_API_MARVEL"
+            buildConfigField "String", "URL_BASE_API_TEST", "$URL_BASE_API_TEST"
             buildConfigField "String", "DB_NAME", "$DB_MARVEL"
             buildConfigField "int", "DB_NUMBER", "$DB_NUMBER_MARVEL"
         }

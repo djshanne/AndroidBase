@@ -20,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class Cloud {
     private static ServiceApp service;
+    private static ServiceAppTest serviceTest;
     private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm").create();
     private static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
     private static RequestInterceptor requestInterceptor = new RequestInterceptor();
@@ -41,6 +42,23 @@ public class Cloud {
 
         service = retrofit.create(ServiceApp.class);
     }
+    public static void initAppServiceTest(String environment) {
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder()
+//                .addInterceptor(requestInterceptor)
+                .addInterceptor(interceptor)
+//                .retryOnConnectionFailure(true)
+                .readTimeout(160, TimeUnit.MINUTES)
+                .writeTimeout(160, TimeUnit.MINUTES)
+                .connectTimeout(160, TimeUnit.MINUTES).build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(environment)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+        serviceTest = retrofit.create(ServiceAppTest.class);
+    }
 
     private static class RequestInterceptor implements Interceptor {
         @Override
@@ -58,6 +76,13 @@ public class Cloud {
             initAppService(BuildConfig.URL_BASE_API);
         }
         return service;
+    }
+
+    public static ServiceAppTest getApiAppTest() throws Exception {
+        if (serviceTest == null) {
+            initAppServiceTest(BuildConfig.URL_BASE_API_TEST);
+        }
+        return serviceTest;
     }
 
 }

@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.app.marvel.base.BaseActivity;
 import com.app.marvel.views.Controller;
+import com.data.service.Cloud;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -18,8 +18,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.model.bean.common.User;
 
 import butterknife.BindView;
+import retrofit2.Response;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 
 /**
@@ -153,19 +159,51 @@ public class HomeActivity extends BaseActivity implements Controller, GoogleApiC
         }
     }
 
+    private Observable<User> getObservable(User user) {
+        return Observable.create((Observable.OnSubscribe<User>) subscriber -> {
+            try {
+//                Thread.sleep(5000);
+                Response<User> r = Cloud.getApiAppTest().register(user).execute();
+                subscriber.onNext(r.body());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.newThread());
+    }
+
     private void handleSignInResult(GoogleSignInResult result) {
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-            updateUI(true);
+            User user = new User();
+            user.setEmail(acct.getEmail());
+            user.setFirstName(acct.getGivenName());
+            user.setLastName(acct.getFamilyName());
+            user.setUsername(acct.getEmail().split("@")[0]);
+            getObservable(user).subscribe(new Subscriber<User>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(User user) {
+                    mStatusTextView.setText(getString(R.string.signed_in_fmt, user.getEmail()));
+                }
+            });
         } else {
             // Signed out, show unauthenticated UI.
-            updateUI(false);
+            updateUI();
         }
     }
 
-    private void updateUI(boolean b) {
+    private void updateUI() {
         mStatusTextView.setText(getString(R.string.signed_in_fmt, "NOOO"));
     }
 }
