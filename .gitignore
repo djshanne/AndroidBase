@@ -37,3 +37,4 @@ captures/
 app/fabric.properties
 
 *.json
+*.kjs
